@@ -1,0 +1,31 @@
+on: [push]
+
+jobs:
+  gist-sync:
+    name: gist-sync
+    runs-on: ubuntu-latest
+    steps:
+    #PIC18F4550
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F4550
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/microside-mx/772ef582c3fd6e3cf47c923755ea7747
+          gist_title: Práctica-20 Serial BLE 4550-MikroC.c
+          gist_description: Prácticas MikroC Pro for PIC
+          github_file: Proyecto/BLE/4550/SERIAL.c
+          file_encoding: WINDOWS-1252
+    #PIC18F45K50
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F45K50
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/microside-mx/bcb2c0c6279cd15e9f10feb85e8ac873
+          gist_title: Práctica-20 Serial BLE 45K50-MikroC.c
+          gist_description: Prácticas MikroC Pro for PIC
+          github_file: Proyecto/BLE/45K50/SERIAL.c
+          file_encoding: WINDOWS-1252
